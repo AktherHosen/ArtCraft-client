@@ -1,87 +1,130 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.svg";
-import user from "../assets/user.svg";
-import { NavLink } from "react-router-dom";
+import userImg from "../assets/user.svg";
+import { Link, NavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
+import useAuth from "../hooks/useAuth";
+
 const Navbar = () => {
-  const [sideMenuOpen, setsideMenuOpen] = useState(false);
+  const { user, loggedOutUser } = useAuth() || {};
+  const handleLogOut = () => {
+    loggedOutUser()
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const navLinks = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/" className="hover:underline">
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink>All Art & craft Items</NavLink>
+        <NavLink to="/allCraft" className="hover:underline">
+          All Art & Craft Items
+        </NavLink>
       </li>
       <li>
-        <NavLink>Add Craft Item</NavLink>
+        <NavLink to="/addCraft" className="hover:underline">
+          Add Craft Item
+        </NavLink>
       </li>
       <li>
-        <NavLink>My Art & Craft List</NavLink>
+        <NavLink to="/myCraft" className="hover:underline">
+          My Art & Craft List
+        </NavLink>
       </li>
     </>
   );
+
   return (
-    <>
-      <div className="flex justify-between px08 items-center py-6">
-        <section className="flex items-center gap-4">
-          <div
-            className="md:hidden"
-            onClick={() => setsideMenuOpen(!sideMenuOpen)}
-          >
-            {sideMenuOpen === true ? (
-              <IoMdClose className="text-3xl" />
-            ) : (
-              <GiHamburgerMenu className="text-3xl" />
-            )}
-          </div>
-          <div className="flex items-center">
-            <img src={logo} alt="" className="h-10 w-10 " />
-            <h1 className="text-3xl font-semibold">
-              ArtCraft
-              <span className="text-textsecondary font-bold text-4xl">.</span>
-            </h1>
-          </div>
-        </section>
-        {/* sidebar moble menu  */}
-        <div
-          className={`fixed h-full w-screen lg:hidden bg-black/50 backdrop-blur-sm top-20 right-0 ${
-            sideMenuOpen
-              ? "translate-x-0 transition-all"
-              : "-translate-x-full transition-all"
-          } `}
-        >
-          <section className="text-black bg-white flex-col absolute left-0 top-0 h-screen p-8 gap-8 z-50 flex">
-            <ul className="space-y-3">{navLinks}</ul>
-          </section>
-        </div>
-        <section className="flex items-center gap-4">
-          <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button">
-              <button>
-                <img src={user} alt="" className="h-10 w-10 " />
-              </button>
+    <div>
+      <div className="flex justify-between items-center my-4 py-2 h-[80px]">
+        <div className="flex items-center gap-4">
+          <div className="flex gap-x-8 items-center">
+            <div className="flex items-center">
+              {/* <img src={logo} alt="" className="h-10 w-10" /> */}
+              <h1 className="text-3xl font-semibold">
+                ArtCraft
+                <span className="text-textsecondary font-bold text-4xl">.</span>
+              </h1>
             </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu bg-base-100 space-y-2 rounded-box z-[1] w-52 p-2 shadow"
-            >
-              <li>
-                <NavLink to="/login">Login</NavLink>
-              </li>
-              <li>
-                <NavLink to="/register">Register</NavLink>
-              </li>
-              <li>
-                <button>Logout</button>
-              </li>
+            <ul className="hidden lg:flex items-center space-x-3 text-md text-gray-500">
+              {navLinks}
+              {user ? (
+                <button
+                  onClick={handleLogOut}
+                  className="bg-red-600 px-3 py-2 rounded-sm  text-white"
+                >
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
+                  <li>
+                    <Link to="/register">Register</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
-        </section>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <div>
+            <button>
+              {user ? (
+                <img
+                  src={user.photoURL}
+                  alt=""
+                  className="h-10 w-10 rounded-full"
+                />
+              ) : (
+                <img src={userImg} alt="" className="h-10 w-10" />
+              )}
+            </button>
+          </div>
+
+          <div className="lg:hidden cursor-pointer">
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button">
+                <GiHamburgerMenu className="text-3xl" />
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-base-100 space-y-2 rounded-box mt-3 z-[1] w-52 p-2 shadow"
+              >
+                {navLinks}
+                {user ? (
+                  <button
+                    onClick={handleLogOut}
+                    className="bg-red-600 px-3 py-2 rounded-sm  text-white"
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <>
+                    <li>
+                      <Link to="/login">Login</Link>
+                    </li>
+                    <li>
+                      <Link to="/register">Register</Link>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <hr />
-    </>
+    </div>
   );
 };
 
