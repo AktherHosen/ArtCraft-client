@@ -39,7 +39,7 @@ const Register = () => {
         e.target.reset();
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error);
       });
   };
   return (

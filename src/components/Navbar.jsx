@@ -25,7 +25,7 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/allCraft" className="hover:underline">
+        <NavLink to="/allArtCraft" className="hover:underline">
           All Art & Craft Items
         </NavLink>
       </li>
@@ -35,7 +35,7 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/myCraft" className="hover:underline">
+        <NavLink to={`/myArtCraft/${user?.email}`} className="hover:underline">
           My Art & Craft List
         </NavLink>
       </li>
@@ -84,10 +84,14 @@ const Navbar = () => {
                 <img
                   src={user.photoURL}
                   alt=""
-                  className="h-10 w-10 rounded-full"
+                  className="h-10 w-10 border-2 rounded-full"
                 />
               ) : (
-                <img src={userImg} alt="" className="h-10 w-10" />
+                <img
+                  src={userImg}
+                  alt=""
+                  className="h-10 w-10 border-2 rounded-full"
+                />
               )}
             </button>
           </div>
