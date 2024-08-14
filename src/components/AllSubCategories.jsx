@@ -19,9 +19,12 @@ const AllSubCategories = () => {
         toast.error("Error fetching categories:", error);
       });
   }, [setLoading]);
+
+  // Animation
   useEffect(() => {
     Aos.init({ duration: "1000" });
   }, []);
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-[600px]">
