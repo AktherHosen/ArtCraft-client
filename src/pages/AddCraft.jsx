@@ -23,6 +23,7 @@ const AddCraft = () => {
       craftImage,
       itemName,
       subCategoryName,
+
       shortDescription,
       price,
       rating,

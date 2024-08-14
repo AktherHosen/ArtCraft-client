@@ -11,6 +11,8 @@ import AllArtCraft from "../pages/AllArtCraft";
 import CraftDetails from "../pages/CraftDetails";
 import MyArtCraft from "../pages/MyArtCraft";
 import EditCraft from "../pages/EditCraft";
+import AddSubCategory from "../pages/AddSubCategory";
+import SameArtCraft from "../pages/SameArtCraft";
 const Routes = createBrowserRouter([
   {
     path: "/",
@@ -43,6 +45,10 @@ const Routes = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/allcraft"),
       },
       {
+        path: "/sameArt&Craft/:subCategory",
+        element: <SameArtCraft />,
+      },
+      {
         path: "/craftDetails/:id",
         element: (
           <PrivateRoutes>
@@ -69,6 +75,14 @@ const Routes = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allcraft/${params.id}`),
+      },
+      {
+        path: "/addSubcategory",
+        element: (
+          <PrivateRoutes>
+            <AddSubCategory />
+          </PrivateRoutes>
+        ),
       },
     ],
   },

@@ -39,6 +39,11 @@ const Navbar = () => {
           My Art & Craft List
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/addSubcategory" className="hover:underline">
+          Add SubCategory
+        </NavLink>
+      </li>
     </>
   );
 
