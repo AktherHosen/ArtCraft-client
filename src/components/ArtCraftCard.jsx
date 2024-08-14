@@ -10,13 +10,9 @@ const ArtCraftCard = ({ craft }) => {
     craftImage,
     subCategoryName,
     price,
-    shortDescription,
     rating,
     processTime,
-    customization,
     stock,
-    email,
-    name,
   } = craft;
   return (
     <div>

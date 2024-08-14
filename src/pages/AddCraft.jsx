@@ -165,8 +165,8 @@ const AddCraft = () => {
                 <span className="label-text">Stock</span>
               </label>
               <select name="stock" className="select select-bordered w-full">
-                <option value="inStock">In Stock</option>
-                <option value="madeToOrder">Made to Order</option>
+                <option value="In stock">In Stock</option>
+                <option value="Made to Order">Made to Order</option>
               </select>
             </div>
           </div>

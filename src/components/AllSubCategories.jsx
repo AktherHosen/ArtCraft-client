@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import "./Category.css";
 import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
 const AllSubCategories = () => {
+  const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -13,14 +13,22 @@ const AllSubCategories = () => {
       .then((response) => response.json())
       .then((data) => {
         setCategories(data);
+        setLoading(false);
       })
       .catch((error) => {
         toast.error("Error fetching categories:", error);
       });
-  }, []);
+  }, [setLoading]);
   useEffect(() => {
     Aos.init({ duration: "1000" });
   }, []);
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-[600px]">
+        <span className="loading loading-infinity loading-lg size-20 text-red-700"></span>
+      </div>
+    );
+  }
   return (
     <div>
       <h1 className="text-lg font-semibold uppercase my-2">All Categories</h1>

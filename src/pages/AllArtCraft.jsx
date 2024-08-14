@@ -4,7 +4,6 @@ import ArtCraftCard from "../components/ArtCraftCard";
 
 const AllArtCraft = () => {
   const allCrafts = useLoaderData();
-  console.log(allCrafts);
   return (
     <div>
       <h1 className="my-3 uppercase font-bold text-md">All Art Craft</h1>
