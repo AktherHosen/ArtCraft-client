@@ -1,6 +1,9 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
+import { FaEdit, FaStar } from "react-icons/fa";
 import { IoIosPricetags, IoIosTime } from "react-icons/io";
+import { RiDeleteBin6Fill } from "react-icons/ri";
+import { PiTimerFill } from "react-icons/pi";
+import { FaRegEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 const MyCraftCard = ({ myCraft, myCrafts, setMyCrafts }) => {
@@ -51,60 +54,54 @@ const MyCraftCard = ({ myCraft, myCrafts, setMyCrafts }) => {
   };
   return (
     <div>
-      <div className="w-full h-[220px] border p-2 rounded-md shadow-md">
-        <div className="flex justify-center gap-4">
-          <div className="border-2 w-1/2">
-            <img src={craftImage} alt="" className="h-[200px] w-full p-1" />
+      <div className="shadow-sm" data-aos="zoom-in-up">
+        <div className="border-2 border-black relative">
+          <img src={craftImage} className="h-[300px] w-full p-4 " alt="" />
+          <div className="absolute top-1 right-4">
+            <Link
+              to={`/craftDetails/${_id}`}
+              className="flex justify-center items-center text-center"
+            >
+              <button className="bg-bgprimary text-white px-4 py-2">
+                <FaRegEye size={20} />
+              </button>
+            </Link>
           </div>
-          <div className="w-1/2 flex flex-col items-start justify-center p-2 space-y-2">
-            <h1 className="font-bold">{itemName}</h1>
-            <h4 className="text-sm text-textsecondary font-semibold opacity-80">
-              {subCategoryName}
-            </h4>
-            <div className="grid grid-cols-3 gap-x-2">
-              <p className="flex items-center gap-1">
-                <IoIosPricetags />
+          <div className="px-4 pb-4 space-y-1">
+            <div className="flex justify-between">
+              <h4 className="uppercase text-textprimary opacity-80 text-sm font-semibold">
+                {subCategoryName}
+              </h4>
+              <span className="flex items-center gap-x-1">
+                <IoIosPricetags size={20} />
                 {price}
-              </p>
-              <p className="flex items-center gap-1">
-                <IoIosTime />
-                {processTime}
-              </p>
-              <p className="flex items-center gap-1">
-                <FaStar />
-                {rating}
-              </p>
+              </span>
             </div>
-            <button className="px-3 py-1 border border-[#2980b9] hover:bg-bgprimary hover:text-white text-sm">
-              {stock}
-            </button>
-            <div className="flex gap-2">
-              <Link to={`/craftDetails/${_id}`}>
-                <button
-                  className="rounded-md text-md text-textsecondary uppercase
-         font-semibold hover:underline-offset-2 underline"
-                >
-                  Details
-                </button>
-              </Link>
-              <Link to={`/editMyCraft/${_id}`}>
-                <button
-                  className="rounded-md text-md text-textsecondary uppercase
-         font-semibold hover:underline-offset-2 underline"
-                >
-                  Edit
-                </button>
-              </Link>
-              <Link>
-                <button
-                  onClick={() => handleDelete(_id)}
-                  className="rounded-md text-md text-textsecondary uppercase
-         font-semibold hover:underline-offset-2 underline"
-                >
-                  Delete
-                </button>
-              </Link>
+            <h2 className="text-lg font-semibold">{itemName}</h2>
+            <p className="text-lg">{shortDescription}</p>
+            <div className="flex gap-x-4 ">
+              <span className="flex items-center gap-x-1">
+                <FaStar size={20} className="text-orange-500" /> {rating}
+              </span>
+              <span className="flex items-center gap-x-1">
+                <PiTimerFill size={20} /> {processTime}
+              </span>
             </div>
+          </div>
+          <div className="flex gap-2 px-4">
+            <Link
+              to={`/editMyCraft/${_id}`}
+              className="w-full border rounded-sm py-2 text-center hover:bg-bgprimary hover:text-white"
+            >
+              <button className="text-center">
+                <FaEdit size={20} />
+              </button>
+            </Link>
+            <Link className="w-full border rounded-sm py-2 text-center hover:bg-red-600 hover:text-white">
+              <button onClick={() => handleDelete(_id)} className="">
+                <RiDeleteBin6Fill size={20} />
+              </button>
+            </Link>
           </div>
         </div>
       </div>

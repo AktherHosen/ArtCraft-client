@@ -29,12 +29,14 @@ const AddSubCategory = () => {
   };
   return (
     <div>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center ">
+        <h1 className="text-center font-semibold uppercase mb-2">
+          Add SubCategory
+        </h1>
         <form
           onSubmit={handleAddCategory}
-          className="w-[400px] h-[400px] flex flex-col justify-center border p-4 rounded-md shadow-md"
+          className="w-[400px]  flex flex-col justify-center border p-4 rounded-md shadow-md"
         >
-          <h1 className="text-center">Add SubCategory</h1>
           <div className="grid grid-cols-1 gap-2">
             <div className="col-span-2 md:col-span-1">
               <label className="label">
@@ -59,7 +61,7 @@ const AddSubCategory = () => {
               />
             </div>
           </div>
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center ">
             <button className="bg-bgprimary text-white font-semibold px-6 rounded-md my-4 py-2 w-full md:w-fit">
               Add Sub Category
             </button>

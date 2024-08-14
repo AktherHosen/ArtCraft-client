@@ -22,10 +22,13 @@ const MyArtCraft = () => {
 
   return (
     <div>
-      <h1>My Art Craft</h1>
       <div className="flex justify-end mb-2">
         <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="btn m-1">
+          <div
+            tabIndex={0}
+            role="button"
+            className="border bg-bgprimary text-white m-1 px-6 rounded-sm py-2"
+          >
             Filter
           </div>
           <ul
@@ -48,7 +51,8 @@ const MyArtCraft = () => {
           </ul>
         </div>
       </div>
-      <div>
+      <h1 className="text-lg font-semibold uppercase my-2">My Art Craft</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {filteredCrafts.map((myCraft) => (
           <MyCraftCard
             key={myCraft._id}

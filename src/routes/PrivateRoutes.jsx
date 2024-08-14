@@ -7,8 +7,8 @@ const PrivateRoutes = ({ children }) => {
   const { user, loading } = useAuth();
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <span className="loading loading-infinity loading-lg"></span>
+      <div className="flex items-center justify-center h-[600px]">
+        <span className="loading loading-infinity loading-lg size-20 text-red-700"></span>
       </div>
     );
   }
