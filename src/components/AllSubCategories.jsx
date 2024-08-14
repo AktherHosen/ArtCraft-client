@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-import Aos from "aos";
-import "aos/dist/aos.css";
 
 const AllSubCategories = () => {
   const [loading, setLoading] = useState(true);
@@ -19,11 +17,6 @@ const AllSubCategories = () => {
         toast.error("Error fetching categories:", error);
       });
   }, [setLoading]);
-
-  // Animation
-  useEffect(() => {
-    Aos.init({ duration: "1000" });
-  }, []);
 
   if (loading) {
     return (

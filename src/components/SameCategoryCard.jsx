@@ -3,8 +3,6 @@ import { FaStar } from "react-icons/fa";
 import { IoIosPricetags } from "react-icons/io";
 import { PiTimerFill } from "react-icons/pi";
 import { Link } from "react-router-dom";
-import Aos from "aos";
-import "aos/dist/aos.css";
 
 const SameCategoryCard = ({ item }) => {
   const {
@@ -18,11 +16,6 @@ const SameCategoryCard = ({ item }) => {
     processTime,
     stock,
   } = item;
-
-  // Animation
-  useEffect(() => {
-    Aos.init({ duration: "1000" });
-  }, []);
 
   return (
     <div className="shadow-sm" data-aos="zoom-in-up">

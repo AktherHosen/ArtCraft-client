@@ -1,23 +1,9 @@
 import React from "react";
-import { IoIosPricetags } from "react-icons/io";
-import { IoIosTime } from "react-icons/io";
-import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+
 const ArtCraftCard = ({ craft }) => {
-  const { user } = useAuth();
-  const {
-    _id,
-    itemName,
-    craftImage,
-    subCategoryName,
-    price,
-    rating,
-    processTime,
-    stock,
-    name,
-    customization,
-  } = craft;
+  const { _id, itemName, craftImage, subCategoryName, name, customization } =
+    craft;
   return (
     <>
       <tr>
