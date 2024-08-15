@@ -40,7 +40,7 @@ const AllSubCategories = () => {
                   alt=""
                 />
               </div>
-              <h3 className="font-semibold my-1 text-sm text-textprimary">
+              <h3 className="font-semibold my-1 text-sm  ">
                 {cat.subCategoryName}
               </h3>
             </Link>

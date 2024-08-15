@@ -26,7 +26,7 @@ const SameCategoryCard = ({ item }) => {
         </div>
         <div className="px-4 pb-4 space-y-1">
           <div className="flex justify-between">
-            <h4 className="uppercase text-textprimary opacity-80 text-sm font-semibold">
+            <h4 className="uppercase  text-sm font-semibold">
               {subCategoryName}
             </h4>
             <span className="flex items-center gap-x-1">

@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const AddCraft = () => {
   const { user } = useAuth();
 
+  const [subCategories, setSubCategories] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/categories")
+      .then((response) => response.json())
+      .then((data) => {
+        setSubCategories(data);
+      })
+      .catch((error) => {
+        toast.error("Error fetching categories:", error);
+      });
+  }, []);
+
   const handleAddCraft = (e) => {
-    e.preventDefault(); // Corrected typo here
-    const form = e.target; // Corrected the form reference
+    e.preventDefault();
+    const form = e.target;
     const craftImage = form.craftImage.value;
     const itemName = form.itemName.value;
     const subCategoryName = form.subCategoryName.value;
@@ -82,12 +96,19 @@ const AddCraft = () => {
             <label className="label">
               <span className="label-text">Sub Category Name</span>
             </label>
-            <input
-              type="text"
-              placeholder="Enter sub category name"
-              className="input input-bordered w-full"
+            <select
               name="subCategoryName"
-            />
+              className="select select-bordered w-full"
+            >
+              {subCategories.map((subCategory) => (
+                <option
+                  key={subCategory._id}
+                  value={subCategory.subCategoryName}
+                >
+                  {subCategory.subCategoryName}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="col-span-2 md:col-span-1 row-span-2 mb-4">
             <label className="label">
