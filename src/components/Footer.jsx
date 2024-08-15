@@ -2,6 +2,7 @@ import React from "react";
 import { FaLocationArrow, FaPhoneAlt } from "react-icons/fa";
 import { IoMailUnreadSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 const Footer = () => {
   return (
     <div className="bg-gray-900 text-white text-opacity-80 mt-10 ">
@@ -9,7 +10,15 @@ const Footer = () => {
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           <div class=" mb-8 lg:mb-0 space-y-3">
             <h1 className="text-3xl font-semibold">
-              ArtCraft {}
+              <Typewriter
+                words={["ArtCraft"]}
+                loop={false}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1500}
+              />
               <span className="text-textsecondary font-bold text-4xl">.</span>
             </h1>
             <p class="text-gray-400 mb-4 text-sm">

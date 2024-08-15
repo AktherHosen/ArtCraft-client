@@ -1,8 +1,7 @@
 import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import { Typewriter } from "react-simple-typewriter";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -15,7 +14,15 @@ const Banner = () => {
       <div className="flex flex-col-reverse md:flex-row gap-4">
         <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start space-y-3">
           <h1 className=" text-4xl font-semibold text-center md:text-start font-exo">
-            ArtCraft
+            <Typewriter
+              words={["ArtCraft"]}
+              loop={false}
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1500}
+            />
             <span className="text-textsecondary font-bold text-4xl">.</span>
           </h1>
           <p className="text-center md:text-start">

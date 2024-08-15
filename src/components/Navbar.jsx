@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from "react";
-import logo from "../assets/logo.svg";
 import userImg from "../assets/user.svg";
 import { Link, NavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { IoMdClose } from "react-icons/io";
 import useAuth from "../hooks/useAuth";
 
 const Navbar = ({ handleToggleTheme }) => {
@@ -42,16 +39,6 @@ const Navbar = ({ handleToggleTheme }) => {
       </li>
       <li>
         <NavLink
-          to="/addCraft"
-          className={({ isActive }) =>
-            isActive ? "text-textsecondary underline" : "hover:underline"
-          }
-        >
-          Add Craft Item
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
           to={`/myArtCraft/${user?.email}`}
           className={({ isActive }) =>
             isActive ? "text-textsecondary  underline" : "hover:underline"
@@ -60,6 +47,17 @@ const Navbar = ({ handleToggleTheme }) => {
           My Art & Craft List
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/addCraft"
+          className={({ isActive }) =>
+            isActive ? "text-textsecondary underline" : "hover:underline"
+          }
+        >
+          Add Craft Item
+        </NavLink>
+      </li>
+
       <li>
         <NavLink
           to="/addSubcategory"
