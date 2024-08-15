@@ -79,7 +79,6 @@ const Navbar = ({ handleToggleTheme }) => {
         <div className="flex items-center gap-4">
           <div className="flex gap-x-8 items-center">
             <div className="flex items-center">
-              {/* <img src={logo} alt="" className="h-10 w-10" /> */}
               <h1 className="text-3xl font-semibold">
                 ArtCraft
                 <span className="text-textsecondary font-bold text-4xl">.</span>

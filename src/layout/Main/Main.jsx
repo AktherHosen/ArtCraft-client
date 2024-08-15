@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Footer from "../../components/Footer";
 
 const Main = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -27,10 +28,13 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="px-4 md:px-3 lg:px-2">
-      <Navbar handleToggleTheme={handleToggleTheme} />
-      <Outlet />
-    </div>
+    <>
+      <div className="px-4 md:px-3 lg:px-2 max-w-[1240px] mx-auto">
+        <Navbar handleToggleTheme={handleToggleTheme} />
+        <Outlet />
+      </div>
+      <Footer />
+    </>
   );
 };
 
