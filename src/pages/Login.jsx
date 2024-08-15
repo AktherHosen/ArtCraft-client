@@ -1,8 +1,9 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import loginImg from "../assets/login.jpg";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
+import Lottie from "lottie-react";
+import loginAni from "../../public/login.json";
 const Login = () => {
   const { loggedInUser, googleSignIn, githubSignIn } = useAuth() || {};
   const navigate = useNavigate();
@@ -43,11 +44,11 @@ const Login = () => {
   };
   return (
     <>
-      <div className="flex flex-col-reverse md:flex-row gap-4 items-center justify-center py-4">
-        <div className="card bg-base-100 w-full h-[450px] lg:max-w-lg flex justify-center  shadow-md">
-          <div className="card-body">
+      <div className="h-full md:h-[550px]">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center">
+          <div className="w-full md:w-1/2 lg:max-w-lg  border rounded-md px-4 py-6">
             <div className="text-center flex items-center flex-col gap-2 ">
-              <h2 className="font-semibold text-2xl">
+              <h2 className="font-semibold text-2xl text-textsecondary">
                 You must sign in to join
               </h2>
               <button
@@ -62,7 +63,7 @@ const Login = () => {
               >
                 <FaGithub /> Sign in with GitHub
               </button>
-              <p>__________or__________</p>
+              <p>___________________or___________________</p>
             </div>
             <form onSubmit={handleLogin}>
               <div className="form-control">
@@ -101,9 +102,13 @@ const Login = () => {
               </Link>
             </div>
           </div>
-        </div>
-        <div className="lg:max-w-lg">
-          <img src={loginImg} className="h-[500px] w-full" alt="" />
+          <div className="w-full md:w-1/2 ">
+            <Lottie
+              animationData={loginAni}
+              className="h-full md:h-[600px] w-full"
+              loop={true}
+            />
+          </div>
         </div>
       </div>
     </>
