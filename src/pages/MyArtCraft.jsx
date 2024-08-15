@@ -39,12 +39,12 @@ const MyArtCraft = () => {
               <button onClick={() => setFilterOption("All")}>All</button>
             </li>
             <li>
-              <button onClick={() => setFilterOption("inStock")}>
+              <button onClick={() => setFilterOption("In stock")}>
                 In Stock
               </button>
             </li>
             <li>
-              <button onClick={() => setFilterOption("madeToOrder")}>
+              <button onClick={() => setFilterOption("Made to Order")}>
                 Made to Order
               </button>
             </li>
