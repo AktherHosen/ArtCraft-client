@@ -35,20 +35,9 @@ const AddSubCategory = () => {
         </h1>
         <form
           onSubmit={handleAddCategory}
-          className="w-[400px]  flex flex-col justify-center border p-4 rounded-md shadow-md"
+          className="w-full md:w-[400px]  flex flex-col justify-center border p-4 rounded-md shadow-md"
         >
           <div className="grid grid-cols-1 gap-2">
-            <div className="col-span-2 md:col-span-1">
-              <label className="label">
-                <span className="label-text">Category Image</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Craft photo url"
-                className="input input-bordered w-full"
-                name="subCategoryImage"
-              />
-            </div>
             <div className="col-span-2 md:col-span-1">
               <label className="label">
                 <span className="label-text">Sub Category Name</span>
@@ -58,6 +47,19 @@ const AddSubCategory = () => {
                 placeholder="Enter sub category name"
                 className="input input-bordered w-full"
                 name="subCategoryName"
+                required
+              />
+            </div>
+            <div className="col-span-2 md:col-span-1">
+              <label className="label">
+                <span className="label-text">Sub Category Image</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Sub Category photo url"
+                className="input input-bordered w-full"
+                name="subCategoryImage"
+                required
               />
             </div>
           </div>

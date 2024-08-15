@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 
 const AddCraft = () => {
   const { user } = useAuth();
-
   const [subCategories, setSubCategories] = useState([]);
 
   useEffect(() => {
@@ -72,13 +71,14 @@ const AddCraft = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 md:grid-rows-4 gap-4">
           <div className="col-span-2 md:col-span-1">
             <label className="label">
-              <span className="label-text">Craft Image</span>
+              <span className="label-text">Item Image</span>
             </label>
             <input
               type="text"
-              placeholder="Craft photo url"
+              placeholder="Items photo url"
               className="input input-bordered w-full"
               name="craftImage"
+              required
             />
           </div>
           <div className="col-span-2 md:col-span-1">
@@ -90,6 +90,7 @@ const AddCraft = () => {
               placeholder="Enter craft name"
               className="input input-bordered w-full"
               name="itemName"
+              required
             />
           </div>
           <div className="col-span-2 md:col-span-1">
