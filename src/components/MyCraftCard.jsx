@@ -54,9 +54,11 @@ const MyCraftCard = ({ myCraft, myCrafts, setMyCrafts }) => {
   };
   return (
     <div>
-      <div className="shadow-sm" data-aos="zoom-in-up">
-        <div className="border-2 border-black relative">
-          <img src={craftImage} className="h-[300px] w-full p-4 " alt="" />
+      <div className="" data-aos="zoom-in-up">
+        <div className="border-2 relative">
+          <div className="h-[300px] ">
+            <img src={craftImage} className="h-full w-full p-4 " alt="" />
+          </div>
           <div className="absolute top-1 right-4">
             <Link
               to={`/craftDetails/${_id}`}
@@ -69,7 +71,7 @@ const MyCraftCard = ({ myCraft, myCrafts, setMyCrafts }) => {
           </div>
           <div className="px-4 pb-4 space-y-1">
             <div className="flex justify-between">
-              <h4 className="uppercase text-textprimary opacity-80 text-sm font-semibold">
+              <h4 className="uppercase text-sm font-semibold">
                 {subCategoryName}
               </h4>
               <span className="flex items-center gap-x-1">
