@@ -52,15 +52,19 @@ const MyArtCraft = () => {
         </div>
       </div>
       <h1 className="text-lg font-semibold uppercase my-2">My Art Craft</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {filteredCrafts.map((myCraft) => (
-          <MyCraftCard
-            key={myCraft._id}
-            myCraft={myCraft}
-            myCrafts={myCrafts}
-            setMyCrafts={setMyCrafts}
-          />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filteredCrafts.length > 0 ? (
+          filteredCrafts.map((myCraft) => (
+            <MyCraftCard
+              key={myCraft._id}
+              myCraft={myCraft}
+              myCrafts={myCrafts}
+              setMyCrafts={setMyCrafts}
+            />
+          ))
+        ) : (
+          <h1 className="text-red-600">Oops!! No craft items found.</h1>
+        )}
       </div>
     </div>
   );

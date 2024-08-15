@@ -88,7 +88,7 @@ const MyCraftCard = ({ myCraft, myCrafts, setMyCrafts }) => {
               </span>
             </div>
           </div>
-          <div className="flex gap-2 px-4">
+          <div className="flex gap-2 px-4 mb-2">
             <Link
               to={`/editMyCraft/${_id}`}
               className="w-full border rounded-sm py-2 text-center hover:bg-bgprimary hover:text-white"

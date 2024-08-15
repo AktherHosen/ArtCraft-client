@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import toast from "react-hot-toast";
 const EditCraft = () => {
   const myCraft = useLoaderData();
+  const [subCategories, setSubCategories] = useState([]);
 
   const {
     _id,
@@ -17,6 +18,16 @@ const EditCraft = () => {
     stock,
   } = myCraft;
 
+  useEffect(() => {
+    fetch("http://localhost:5000/categories")
+      .then((response) => response.json())
+      .then((data) => {
+        setSubCategories(data);
+      })
+      .catch((error) => {
+        toast.error("Error fetching categories:", error);
+      });
+  }, []);
   const handleEditCraft = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -99,13 +110,19 @@ const EditCraft = () => {
             <label className="label">
               <span className="label-text">Sub Category Name</span>
             </label>
-            <input
-              type="text"
-              placeholder="Enter sub category name"
-              className="input input-bordered w-full"
+            <select
               name="subCategoryName"
-              defaultValue={subCategoryName}
-            />
+              className="select select-bordered w-full"
+            >
+              {subCategories.map((subCategory) => (
+                <option
+                  key={subCategory._id}
+                  value={subCategory.subCategoryName}
+                >
+                  {subCategory.subCategoryName}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="col-span-2 md:col-span-1 row-span-2 mb-4">
             <label className="label">
