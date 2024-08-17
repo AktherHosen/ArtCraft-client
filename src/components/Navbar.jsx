@@ -47,27 +47,31 @@ const Navbar = ({ handleToggleTheme }) => {
           My Art & Craft List
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/addCraft"
-          className={({ isActive }) =>
-            isActive ? "text-textsecondary underline" : "hover:underline"
-          }
-        >
-          Add Craft Item
-        </NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              to="/addCraft"
+              className={({ isActive }) =>
+                isActive ? "text-textsecondary underline" : "hover:underline"
+              }
+            >
+              Add Craft Item
+            </NavLink>
+          </li>
 
-      <li>
-        <NavLink
-          to="/addSubcategory"
-          className={({ isActive }) =>
-            isActive ? "text-textsecondary underline" : "hover:underline"
-          }
-        >
-          Add SubCategory
-        </NavLink>
-      </li>
+          <li>
+            <NavLink
+              to="/addSubcategory"
+              className={({ isActive }) =>
+                isActive ? "text-textsecondary underline" : "hover:underline"
+              }
+            >
+              Add SubCategory
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -77,10 +81,14 @@ const Navbar = ({ handleToggleTheme }) => {
         <div className="flex items-center gap-4">
           <div className="flex gap-x-8 items-center">
             <div className="flex items-center">
-              <h1 className="text-3xl font-semibold">
-                ArtCraft
-                <span className="text-textsecondary font-bold text-4xl">.</span>
-              </h1>
+              <Link to="/">
+                <h1 className="text-3xl font-semibold">
+                  ArtCraft
+                  <span className="text-textsecondary font-bold text-4xl">
+                    .
+                  </span>
+                </h1>
+              </Link>
             </div>
             <ul className="hidden lg:flex items-center space-x-3 text-md text-gray-500">
               {navLinks}
@@ -108,15 +116,9 @@ const Navbar = ({ handleToggleTheme }) => {
         <div className="flex items-center gap-4">
           <div>
             <button>
-              {user ? (
+              {user && (
                 <img
-                  src={user.photoURL}
-                  alt=""
-                  className="h-10 w-10 border-2 rounded-full"
-                />
-              ) : (
-                <img
-                  src={userImg}
+                  src={user?.photoURL}
                   alt=""
                   className="h-10 w-10 border-2 rounded-full"
                 />
@@ -169,7 +171,7 @@ const Navbar = ({ handleToggleTheme }) => {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu bg-base-100 space-y-2 rounded-box mt-3 z-[1] w-52 p-2 shadow"
+                className="dropdown-content menu bg-base-100 space-y-2 rounded-box mt-3 z-[86] w-52 p-2 shadow"
               >
                 {navLinks}
                 {user ? (

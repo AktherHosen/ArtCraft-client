@@ -28,6 +28,7 @@ const Login = () => {
     googleSignIn()
       .then((res) => {
         toast.success("User logged in successfully!");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         toast.error(error);
@@ -37,6 +38,7 @@ const Login = () => {
     githubSignIn()
       .then((res) => {
         toast.success("User logged in successfully!");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         toast.error(error);

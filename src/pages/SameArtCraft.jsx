@@ -36,7 +36,7 @@ const SameArtCraft = () => {
           <h3 className="text-textsecondary font-bold my-2 text-md uppercase">
             {subCategory}
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-x-[3.4rem]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
             {sameCategory.map((item) => (
               <SameCategoryCard key={item._id} item={item}></SameCategoryCard>
             ))}
