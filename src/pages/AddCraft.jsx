@@ -7,7 +7,7 @@ const AddCraft = () => {
   const [subCategories, setSubCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch("https://artcraft-server.vercel.app/categories")
       .then((response) => response.json())
       .then((data) => {
         setSubCategories(data);
@@ -47,10 +47,10 @@ const AddCraft = () => {
       email,
     };
 
-    fetch("http://localhost:5000/allcraft", {
+    fetch("https://artcraft-server.vercel.app/allcraft", {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
+        "content-type": "application/json",
       },
       body: JSON.stringify(craftInfo),
     })

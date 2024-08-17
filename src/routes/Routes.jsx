@@ -42,7 +42,7 @@ const Routes = createBrowserRouter([
       {
         path: "/allArtCraft",
         element: <AllArtCraft />,
-        loader: () => fetch("http://localhost:5000/allcraft"),
+        loader: () => fetch("https://artcraft-server.vercel.app/allcraft"),
       },
       {
         path: "/sameArt&Craft/:subCategory",
@@ -56,7 +56,7 @@ const Routes = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allcraft/${params.id}`),
+          fetch(`https://artcraft-server.vercel.app/allcraft/${params.id}`),
       },
       {
         path: "/myArtCraft/:email",
@@ -74,7 +74,7 @@ const Routes = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allcraft/${params.id}`),
+          fetch(`https://artcraft-server.vercel.app/allcraft/${params.id}`),
       },
       {
         path: "/addSubcategory",

@@ -9,7 +9,7 @@ const SameArtCraft = () => {
 
   useEffect(() => {
     if (subCategory) {
-      fetch(`http://localhost:5000/sameCategory/${subCategory}`)
+      fetch(`https://artcraft-server.vercel.app/sameCategory/${subCategory}`)
         .then((res) => res.json())
         .then((data) => {
           setSameCategory(data);

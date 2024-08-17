@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 const TopArtCrafts = () => {
   const [topCrafts, setTopCrafts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allcraft")
+    fetch("https://artcraft-server.vercel.app/allcraft")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

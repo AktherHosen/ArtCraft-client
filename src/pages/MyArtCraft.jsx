@@ -8,7 +8,7 @@ const MyArtCraft = () => {
   const [filterOption, setFilterOption] = useState("All");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myArtCraft/${user?.email}`)
+    fetch(`https://artcraft-server.vercel.app/myArtCraft/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyCrafts(data);

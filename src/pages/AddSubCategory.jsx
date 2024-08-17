@@ -9,10 +9,10 @@ const AddSubCategory = () => {
     const subCategoryName = form.subCategoryName.value;
     const categoryInfo = { subCategoryImage, subCategoryName };
 
-    fetch("http://localhost:5000/categories", {
+    fetch("https://artcraft-server.vercel.app/categories", {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
+        "content-type": "application/json",
       },
       body: JSON.stringify(categoryInfo),
     })

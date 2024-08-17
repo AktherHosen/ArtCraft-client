@@ -7,7 +7,7 @@ const AllSubCategories = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch("https://artcraft-server.vercel.app/categories")
       .then((response) => response.json())
       .then((data) => {
         setCategories(data);

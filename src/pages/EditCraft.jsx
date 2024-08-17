@@ -19,7 +19,7 @@ const EditCraft = () => {
   } = myCraft;
 
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch("https://artcraft-server.vercel.app/categories")
       .then((response) => response.json())
       .then((data) => {
         setSubCategories(data);
@@ -53,7 +53,7 @@ const EditCraft = () => {
       stock,
     };
 
-    fetch(`http://localhost:5000/updateCraft/${_id}`, {
+    fetch(`https://artcraft-server.vercel.app/updateCraft/${_id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",

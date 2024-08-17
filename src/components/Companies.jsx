@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 const Companies = () => {
   return (
-    <div className="my-8">
+    <div className="my-8 text-white">
       <h1 className="text-lg font-semibold uppercase my-2">
         Companies Trust us
       </h1>
